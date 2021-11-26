@@ -1,5 +1,5 @@
 """
-Tabela da Aula em formato de Dicio"n"ario:
+Tabela da Aula em formato de Dicionario:
 
 1 - SIM ="s
 2 - NAO = "n"
