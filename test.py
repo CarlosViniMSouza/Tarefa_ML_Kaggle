@@ -32,7 +32,7 @@ quantGripeNao = 0
 
 for i in range(len(tabela['GRIPE'])):
 
-  if(tabela['GRIPE'] == "s"):
+  if(tabela['GRIPE'][i] == "s"):
     quantGripeSim += 1
   else:
     quantGripeNao += 1
@@ -88,7 +88,8 @@ print("Quantidade Procurada de Febre: ", quantFebre) #5
 
 
 # Aplicando a Formula
-  
-ProbGripeSim = ((quantCalafrios)/5 + (quantCefaleia)/5) 
+ProbGripeSim = ((quantCalafrios/quantGripeSim) * (quantCefaleia/quantGripeSim) * (quantCoriza/quantGripeSim) * (quantFebre/quantGripeSim))/ (quantGripeSim/len(tabela['GRIPE']))
 
 print("O resultado de P(x|GRIPE = SIM) eh: ", ProbGripeSim)
+
+# Agora vamos calcular o P(x | GRIPE = NAO):
