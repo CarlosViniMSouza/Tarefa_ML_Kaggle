@@ -1,1 +1,1 @@
-Implemente o modelo de aprendizagem supervisionada Naive Bayes para a base de dados  Espécies de Iris, hospedada na plataforma Kaggle (https://www.kaggle.com/uciml/iris)
+Implemente o modelo de aprendizagem supervisionada Naive Bayes para a base de dados Espécies de Iris, hospedada na plataforma Kaggle (https://www.kaggle.com/uciml/iris)
