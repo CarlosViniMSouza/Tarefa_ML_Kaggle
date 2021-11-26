@@ -21,43 +21,74 @@ tabela = {
   "GRIPE": ["n", "s", "s", "s", "n", "s", "n", "s"]
 }
 
-# Contadores:
-quantSim = 0
-quantNao = 0
+"""
+Formula: (P(Calafrios = "s" | GRIPE = "s") * P(Coriza = "n" | GRIPE = "s") * P(Cefaleia = f | GRIPE = "s") * P(Febre = "s" | GRIPE = "n"))/P(x | GRIPE = "s")
+"""
 
-"""
-Formula: [P(Calafrios = "s" | GRIPE = "s") * P(Coriza = "n" | GRIPE = "s") * P(Cefaleia = f | GRIPE = "s") * P(Febre = "s" | GRIPE = "n")]/P(x | GRIPE = "s") 
-"""
+# Separando a coluna gripe entre "SIM" e "NAO":
+# Contadores:
+quantGripeSim = 0
+quantGripeNao = 0
+
+for i in range(len(tabela['GRIPE'])):
+
+  if(tabela['GRIPE'] == "s"):
+    quantGripeSim += 1
+  else:
+    quantGripeNao += 1
+
+# Agora vamos dividir cada coluna nas respectivas respostas:
 
 # Laco FOR para a coluna "Calafrios"
+# Contadores:
+quantCalafrios = 0
+
 for i in range(0, len(tabela['Calafrios'])):
 
-  if (tabela['Calafrios'][i] == "s"):
-    quantSim += 1
-  else:
-    quantNao += 1
+  if (tabela['Calafrios'][i] == "s" and tabela["GRIPE"][i] == "s"):
+    quantCalafrios += 1
 
-print("Quantidade de SIM - Calafrios: ", quantSim) #4
-print("Quantidade de NAO - Calafrios: ", quantNao) #4
+print("Quantidade procurada de Calafrios: ", quantCalafrios) #3
 
-print("\n\n")
 
 # Laco FOR para a coluna "Cefaleia"
-
-# Novos Contadores e Zerando quantNao:
-quantMed = 0
-quantForte = 0
-quantNao = 0
+# Contadores:
+quantCefaleia = 0
 
 for i in range(0, len(tabela['Cefaleia'])):
 
-  if (tabela['Cefaleia'][i] == "m"):
-    quantMed += 1
-  elif(tabela['Cefaleia'][i] == "f"):
-    quantForte += 1
-  else: 
-    quantNao += 1
+  if (tabela['Cefaleia'][i] == "m" and tabela["GRIPE"][i] == "s"):
+    quantCefaleia += 1
 
-print("Quantidade de Forte - Cefaleia: ", quantForte) #
-print("Quantidade de Media - Cefaleia: ", quantMed) #
-print("Quantidade de NAO - Cefaleia: ", quantNao)
+print("Quantidade procurada de Cefaleia: ", quantCefaleia) #3
+
+
+# Laco FOR para a coluna "Coriza"
+# Contadores:
+quantCoriza = 0
+
+for i in range(0, len(tabela['Coriza'])):
+
+  if (tabela['Coriza'][i] == "s" and tabela["GRIPE"][i] == "s"):
+    quantCoriza += 1
+
+print("Quantidade procurada de Coriza: ", quantCoriza) #5
+
+
+# Laco FOR para a coluna "Febre"
+# Contadores:
+quantFebre = 0
+
+for i in range(0, len(tabela['Febre'])):
+
+  if (tabela['Febre'][i] == "s" and tabela["GRIPE"][i] == "s"):
+    quantFebre += 1
+
+print("Quantidade Procurada de Febre: ", quantFebre) #5
+
+
+# Aplicando a Formula
+  
+ProbGripeSim = ((quantCalafrios)/5 + (quantCefaleia)/5) 
+
+print("O resultado de P(x|GRIPE = SIM) eh: ", ProbGripeSim)
