@@ -37,7 +37,27 @@ for i in range(0, len(tabela['Calafrios'])):
   else:
     quantNao += 1
 
-print("Quantidade de SIM: ", quantSim)
-print("Quantidade de NAO: ", quantNao)
+print("Quantidade de SIM - Calafrios: ", quantSim) #4
+print("Quantidade de NAO - Calafrios: ", quantNao) #4
+
+print("\n\n")
 
 # Laco FOR para a coluna "Cefaleia"
+
+# Novos Contadores e Zerando quantNao:
+quantMed = 0
+quantForte = 0
+quantNao = 0
+
+for i in range(0, len(tabela['Cefaleia'])):
+
+  if (tabela['Cefaleia'][i] == "m"):
+    quantMed += 1
+  elif(tabela['Cefaleia'][i] == "f"):
+    quantForte += 1
+  else: 
+    quantNao += 1
+
+print("Quantidade de Forte - Cefaleia: ", quantForte) #
+print("Quantidade de Media - Cefaleia: ", quantMed) #
+print("Quantidade de NAO - Cefaleia: ", quantNao)
