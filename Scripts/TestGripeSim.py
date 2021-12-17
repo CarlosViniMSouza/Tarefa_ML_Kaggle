@@ -45,7 +45,7 @@ quantCalafrios = 0
 
 for i in range(0, len(tabela['Calafrios'])):
 
-    if (tabela['Calafrios'][i] == "s" and tabela["GRIPE"][i] == "s"):
+    if (tabela['Calafrios'][i] == "n" and tabela["GRIPE"][i] == "s"):
         quantCalafrios += 1
 
 print("\nQuantidade procurada de Calafrios: ", quantCalafrios)  # 3
@@ -57,7 +57,7 @@ quantCefaleia = 0
 
 for i in range(0, len(tabela['Cefaleia'])):
 
-    if (tabela['Cefaleia'][i] == "m" and tabela["GRIPE"][i] == "s"):
+    if (tabela['Cefaleia'][i] == "n" and tabela["GRIPE"][i] == "s"):
         quantCefaleia += 1
 
 print("Quantidade procurada de Cefaleia: ", quantCefaleia)  # 3
